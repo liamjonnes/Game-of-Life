@@ -98,4 +98,27 @@ public class Game {
       }
     }
   }
+  
+  /**
+   * Obtains the number of neighbours that a cell has
+   * (horizontally, vertically, or diagonally adjacent)
+   * 
+   * @param   x the X axis position of a cell
+   * @param   y the Y axis position of a cell
+   * @return  the number of neighbours that the cell has
+   */
+  public int getNumberOfNeighbours(int x, int y) {
+    int numberOfNeighbours = 0;
+    
+    for(int i = x - 1; i <= x + 1; i++) {
+      for(int j = y - 1; j <= y + 1; j++) {
+        if(grid[i][j] == 1) {
+          if(x != i || y != j) {
+            numberOfNeighbours++;
+          }
+        }
+      }
+    }
+    return numberOfNeighbours;
+  }
 }
