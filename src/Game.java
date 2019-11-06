@@ -79,4 +79,23 @@ public class Game {
     grid[middleOfGrid-1][middleOfGrid -1] = 1;  // middle position
     grid[middleOfGrid-1][middleOfGrid] = 1;     // middle position + 1
   }
+  
+  /**
+   * Fills the grid randomly with alive or dead cells.
+   */
+  public void populateGrid() {
+    double randomValue = 0;
+    
+    for(int i = 0; i < gameSize; i++) {
+      for(int j = 0; j < gameSize; j++) {
+        randomValue = Math.random();  // different value is determined
+                                      // for each grid position
+        if(randomValue > 0.8) {
+          grid[i][j] = 1;
+        } else {
+          grid[i][j] = 0;
+        }
+      }
+    }
+  }
 }
