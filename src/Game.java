@@ -44,4 +44,20 @@ public class Game {
   public int[][] getBoard() {
     return this.grid;
   }
+  
+  /**
+   * Obtains the value of a cell (whether it's alive or 
+   * dead).
+   * 
+   * @param x the X axis position of a cell
+   * @param y the Y axis position of a cell
+   * @return  the value of a cell (1 - alive; 0 - dead)
+   */
+  public int getCell(int x, int y) {
+    if(grid[x][y] == 1) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
 }
