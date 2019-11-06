@@ -60,4 +60,23 @@ public class Game {
       return 0;
     }
   }
+  
+  /**
+   * Creates Scenario Six of the PDF on the grid (1x3 row
+   * of cells)
+   */
+  public void createScenarioSix() {
+    int middleOfGrid = 0;
+    
+    // if gameSize is even, do...; else if odd, do...
+    if(gameSize % 2 == 0) {
+      middleOfGrid = (gameSize / 2);
+    } else {
+      middleOfGrid = ((gameSize / 2 ) + 1); // + 1 as Java rounds down
+    }
+    
+    grid[middleOfGrid-1][middleOfGrid-2] = 1;   // middle position - 1
+    grid[middleOfGrid-1][middleOfGrid -1] = 1;  // middle position
+    grid[middleOfGrid-1][middleOfGrid] = 1;     // middle position + 1
+  }
 }
