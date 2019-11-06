@@ -35,4 +35,13 @@ public class Game {
   public int getGameSize() {
     return this.gameSize;
   }
+  
+  /**
+   * Obtains the grid.
+   * 
+   * @return  the grid
+   */
+  public int[][] getBoard() {
+    return this.grid;
+  }
 }
