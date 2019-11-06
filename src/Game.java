@@ -26,4 +26,13 @@ public class Game {
     this.gameSize = size;
     this.grid = new int[gameSize][gameSize];
   }
+  
+  /**
+   * Obtains the size of the grid.
+   * 
+   * @return  the size of the grid
+   */
+  public int getGameSize() {
+    return this.gameSize;
+  }
 }
