@@ -2,8 +2,19 @@ import java.util.Scanner;
 
 import javax.swing.JFrame;
 
+/**
+ * A class that allows the Game of Life to be run with the users preferred type of interface
+ * (command line, or a graphical user interface).
+ * 
+ * @author Liam Jones
+ */
 public class Main {
 
+  /**
+   * The code that is run when starting the program.
+   * 
+   * @param args  any possible command line arguments
+   */
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     
