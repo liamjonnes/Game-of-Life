@@ -39,6 +39,6 @@ public class Controller {
         
         grid.repaint();
       }
-    },0 , 200);
+    },0 , 150);
   }
 }
