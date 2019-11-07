@@ -121,4 +121,36 @@ public class Game {
     }
     return numberOfNeighbours;
   }
+  
+  /**
+   * Iterates the grid, then saves the new iteration as a new state
+   * when complete.
+   * 
+   * @return  an updated grid with a new state
+   */
+  public int[][] iterateGrid() {
+    int[][] copyOfGrid = new int[grid.length][grid.length];
+    
+    for(int i = 1; i < gameSize - 1; i++) {
+      for(int j = 1; j < gameSize - 1; j++) {
+        int numberOfNeighbours = getNumberOfNeighbours(i, j);
+        
+        if(grid[i][j] == 1) {
+          if((numberOfNeighbours < 2) || (numberOfNeighbours > 3)) {
+            copyOfGrid[i][j] = 0;
+          }
+          if((numberOfNeighbours == 2) || (numberOfNeighbours == 3)) {
+            copyOfGrid[i][j] = 1;
+          }
+        }
+        if((grid[i][j] == 0) && (numberOfNeighbours == 3)) {
+          copyOfGrid[i][j] = 1;
+        }
+      }
+    }
+    
+    grid = copyOfGrid;
+    
+    return grid;
+  }
 }
