@@ -37,7 +37,12 @@ public class Main {
       } else if((userInput == 'g') || (userInput == 'G')) {
         JFrame frame = new JFrame("Game of Life");
         
+        Game game = new Game(150);
+        GridDisplay grid = new GridDisplay(game);
+        Controller controller = new Controller(game, grid);
+        
         frame.setSize(400, 400);
+        frame.add(grid);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         frame.setVisible(true);
