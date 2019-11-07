@@ -9,6 +9,8 @@ import javax.swing.JFrame;
  * @author Liam Jones
  */
 public class Main {
+  
+  public static Scanner scanner = new Scanner(System.in);
 
   /**
    * The code that is run when starting the program.
@@ -16,8 +18,14 @@ public class Main {
    * @param args  any possible command line arguments
    */
   public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
-    
+    chooseUIDialog();
+  }
+  
+  /**
+   * Allows the user to choose which UI they want to use; loops until the user
+   * chooses one of the three options.
+   */
+  public static void chooseUIDialog() {
     while(true) {
       System.out.println("How would you like to run the program?");
       System.out.println("(c) for via the command line, (g) for the graphical user interface, or (q) to quit.");
@@ -25,31 +33,45 @@ public class Main {
       char userInput = runVia.charAt(0);  // converts the user input to a character
       
       if((userInput == 'c') || (userInput == 'C')) {
-        System.out.println("How big should the grid be? ");
-        int gridSize = scanner.nextInt();
-        System.out.println("How many states should be printed?");
-        int numberOfStates = scanner.nextInt();
-        
-        Game game = new Game(gridSize);
-        
-        game.printGrid(numberOfStates);
+        commandLineUI();
         break;
       } else if((userInput == 'g') || (userInput == 'G')) {
-        JFrame frame = new JFrame("Game of Life");
-        
-        Game game = new Game(150);
-        GridDisplay grid = new GridDisplay(game);
-        Controller controller = new Controller(game, grid);
-        
-        frame.setSize(400, 400);
-        frame.add(grid);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        frame.setVisible(true);
+        graphicalUI();
         break;
       } else if((userInput == 'q') || (userInput == 'Q')) {
         System.exit(0);
       }
     }
+  }
+  
+  /**
+   * Initialises the Command Line User Interface.
+   */
+  public static void commandLineUI() {
+    System.out.println("How big should the grid be? ");
+    int gridSize = scanner.nextInt();
+    System.out.println("How many states should be printed?");
+    int numberOfStates = scanner.nextInt();
+    
+    Game game = new Game(gridSize);
+    
+    game.printGrid(numberOfStates);
+  }
+  
+  /**
+   * Initialises the Graphical User Interface (GUI).
+   */
+  public static void graphicalUI() {
+    JFrame frame = new JFrame("Game of Life");
+    
+    Game game = new Game(150);
+    GridDisplay grid = new GridDisplay(game);
+    Controller controller = new Controller(game, grid);
+    
+    frame.setSize(400, 400);
+    frame.add(grid);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    
+    frame.setVisible(true);
   }
 }
