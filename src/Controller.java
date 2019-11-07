@@ -13,6 +13,7 @@ public class Controller {
   private Game game;
   private GridDisplay grid;
   private Timer timer;
+  private static final int PERIOD = 150;
   
   /**
    * Initialises the controller.
@@ -39,6 +40,6 @@ public class Controller {
         
         grid.repaint();
       }
-    },0 , 150);
+    },0 , PERIOD);
   }
 }
