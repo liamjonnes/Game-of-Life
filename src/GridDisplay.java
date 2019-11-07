@@ -24,6 +24,7 @@ public class GridDisplay extends JPanel {
    */
   public GridDisplay(Game game) {
     this.game = game;
+    game.populateGrid();
     setBackground(Color.WHITE);
     setPreferredSize(new Dimension(400, 400));
   }

@@ -10,6 +10,7 @@ public class Controller {
   public Controller(Game game, GridDisplay grid) {
     this.game = game;
     this.grid = grid;
+    this.runGame();
   }
   
   public void runGame() {
@@ -22,6 +23,6 @@ public class Controller {
         
         grid.repaint();
       }
-    }, 200);
+    },0 , 200);
   }
 }
