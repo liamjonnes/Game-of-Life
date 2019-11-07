@@ -15,6 +15,8 @@ public class Game {
 
   private int gameSize;
   private int[][] grid;
+  private static final int CELLALIVE = 1;
+  private static final int CELLDEAD = 0;
   
   /**
    * Initialises a grid (array of N x N elements) where
@@ -54,10 +56,10 @@ public class Game {
    * @return  the value of a cell (1 - alive; 0 - dead)
    */
   public int getCell(int x, int y) {
-    if(grid[x][y] == 1) {
-      return 1;
+    if(grid[x][y] == CELLALIVE) {
+      return CELLALIVE;
     } else {
-      return 0;
+      return CELLDEAD;
     }
   }
   
@@ -91,9 +93,9 @@ public class Game {
         randomValue = Math.random();  // different value is determined
                                       // for each grid position
         if(randomValue > 0.8) {
-          grid[x][y] = 1;
+          grid[x][y] = CELLALIVE;
         } else {
-          grid[x][y] = 0;
+          grid[x][y] = CELLDEAD;
         }
       }
     }
@@ -135,16 +137,16 @@ public class Game {
       for(int y = 1; y < gameSize - 1; y++) {
         int numberOfNeighbours = getNumberOfNeighbours(x, y);
         
-        if(grid[x][y] == 1) {
+        if(grid[x][y] == CELLALIVE) {
           if((numberOfNeighbours < 2) || (numberOfNeighbours > 3)) {
-            copyOfGrid[x][y] = 0;
+            copyOfGrid[x][y] = CELLDEAD;
           }
           if((numberOfNeighbours == 2) || (numberOfNeighbours == 3)) {
-            copyOfGrid[x][y] = 1;
+            copyOfGrid[x][y] = CELLALIVE;
           }
         }
-        if((grid[x][y] == 0) && (numberOfNeighbours == 3)) {
-          copyOfGrid[x][y] = 1;
+        if((grid[x][y] == CELLDEAD) && (numberOfNeighbours == 3)) {
+          copyOfGrid[x][y] = CELLALIVE;
         }
       }
     }
