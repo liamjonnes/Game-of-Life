@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 public class Main {
   
   private static Scanner scanner = new Scanner(System.in);
+  private static final int WIDTH = 740;
+  private static final int HEIGHT = 715;
 
   /**
    * The code that is run when starting the program.
@@ -64,11 +66,11 @@ public class Main {
   public static void graphicalUI() {
     JFrame frame = new JFrame("Game of Life");
     
-    Game game = new Game(150);
+    Game game = new Game(70);
     GridDisplay grid = new GridDisplay(game);
     Controller controller = new Controller(game, grid);
     
-    frame.setSize(400, 400);
+    frame.setSize(HEIGHT, WIDTH);
     frame.add(grid);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     
