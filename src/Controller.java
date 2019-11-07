@@ -10,9 +10,9 @@ import java.util.TimerTask;
  */
 public class Controller {
 
-  public Game game;
-  public GridDisplay grid;
-  public Timer timer;
+  private Game game;
+  private GridDisplay grid;
+  private Timer timer;
   
   /**
    * Initialises the controller.

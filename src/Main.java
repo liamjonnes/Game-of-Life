@@ -10,7 +10,7 @@ import javax.swing.JFrame;
  */
 public class Main {
   
-  public static Scanner scanner = new Scanner(System.in);
+  private static Scanner scanner = new Scanner(System.in);
 
   /**
    * The code that is run when starting the program.

@@ -13,8 +13,8 @@
  */
 public class Game {
 
-  public int gameSize;
-  public int[][] grid;
+  private int gameSize;
+  private int[][] grid;
   
   /**
    * Initialises a grid (array of N x N elements) where

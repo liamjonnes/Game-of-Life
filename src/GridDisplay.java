@@ -12,7 +12,7 @@ import javax.swing.JPanel;
  */
 public class GridDisplay extends JPanel {
   
-  public Game game;
+  private Game game;
 
   /**
    * Initialises a new grid/game that will be displayed
