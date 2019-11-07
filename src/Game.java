@@ -153,4 +153,26 @@ public class Game {
     
     return grid;
   }
+  
+  /**
+   * Prints the grid to the console for each state.
+   * 
+   * @param numberOfTimes that the grid should be printed in the console
+   */
+  public void printGrid(int numberOfTimes) {
+    populateGrid();
+    
+    for(int i = 0; i < numberOfTimes; i++) {
+      for(int j = 0; j < grid.length; j++) {
+        for(int k = 0; k < grid.length; k++) {
+          System.out.print(grid[j][k] + " ");
+        }
+        System.out.println();
+      }
+      
+      System.out.println(); // used to separate each state
+      
+      iterateGrid();
+    }
+  }
 }
