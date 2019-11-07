@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 public class GridDisplay extends JPanel {
   
   private Game game;
+  private static final int SIZE = 10;
 
   /**
    * Initialises a new grid/game that will be displayed
@@ -44,10 +45,10 @@ public class GridDisplay extends JPanel {
         // otherwise colour it in white
         if(game.getCell(x, y) == 1) {
           g.setColor(Color.BLACK);
-          g.fillRect((x * 10), (y * 10), 10, 10);
+          g.fillRect((x * SIZE), (y * SIZE), SIZE, SIZE);
         } else {
           g.setColor(Color.WHITE);
-          g.fillRect((x * 10), (y * 10), 10, 10);
+          g.fillRect((x * SIZE), (y * SIZE), SIZE, SIZE);
         }
       }
     }
