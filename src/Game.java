@@ -86,14 +86,14 @@ public class Game {
   public void populateGrid() {
     double randomValue = 0;
     
-    for(int i = 0; i < gameSize; i++) {
-      for(int j = 0; j < gameSize; j++) {
+    for(int x = 0; x < gameSize; x++) {
+      for(int y = 0; y < gameSize; y++) {
         randomValue = Math.random();  // different value is determined
                                       // for each grid position
         if(randomValue > 0.8) {
-          grid[i][j] = 1;
+          grid[x][y] = 1;
         } else {
-          grid[i][j] = 0;
+          grid[x][y] = 0;
         }
       }
     }
@@ -131,20 +131,20 @@ public class Game {
   public int[][] iterateGrid() {
     int[][] copyOfGrid = new int[grid.length][grid.length];
     
-    for(int i = 1; i < gameSize - 1; i++) {
-      for(int j = 1; j < gameSize - 1; j++) {
-        int numberOfNeighbours = getNumberOfNeighbours(i, j);
+    for(int x = 1; x < gameSize - 1; x++) {
+      for(int y = 1; y < gameSize - 1; y++) {
+        int numberOfNeighbours = getNumberOfNeighbours(x, y);
         
-        if(grid[i][j] == 1) {
+        if(grid[x][y] == 1) {
           if((numberOfNeighbours < 2) || (numberOfNeighbours > 3)) {
-            copyOfGrid[i][j] = 0;
+            copyOfGrid[x][y] = 0;
           }
           if((numberOfNeighbours == 2) || (numberOfNeighbours == 3)) {
-            copyOfGrid[i][j] = 1;
+            copyOfGrid[x][y] = 1;
           }
         }
-        if((grid[i][j] == 0) && (numberOfNeighbours == 3)) {
-          copyOfGrid[i][j] = 1;
+        if((grid[x][y] == 0) && (numberOfNeighbours == 3)) {
+          copyOfGrid[x][y] = 1;
         }
       }
     }
